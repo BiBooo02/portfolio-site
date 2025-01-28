@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boban Bozic Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Header with nav included-->
+    <header class="header">
+      <a href="#home" class="logo"><span>B</span>Bozic</a>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+      </nav>
+
+      <a href="#contact" class="contact">Contact Me</a>
+    </header>
+
+    <!--Home Section-->
+    <section class="home" id="home">
+      
+      <div class="home-content">
+        <h3>Hi!</h3>
+        <h1>
+          I'm <span>Boban Bozic, <br /></span>a Frontend Developer
+        </h1>
+        <p>
+          My focus is on building accessible, responsive, and dynamic interfaces
+          that adapt seamlessly across all devices.
+        </p>
+
+        <div class="btn-box">
+          <button class="btn-1">Hire Me</button>
+          <a href="BobanBozicCV.pdf" download="My_CV.pdf" class="btn-2"
+            >Download CV</a
+          >
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="viber_image_2022-12-22_14-04-21-492.jpg" alt="Home Image" />
+      </div>
+    </section>
+
+    <!--About section-->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="viber_image_2022-12-22_14-04-21-492.jpg" alt="about image" />
+      </div>
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Frontend <span>Developer</span></h3>
+        <p>
+          I am a front-end developer with a passion for crafting intuitive and
+          accessible web experiences. With expertise in HTML, CSS, JavaScript,
+          and modern frameworks like React, I specialize in bringing creative
+          designs to life. I thrive on solving complex problems and am always
+          excited to learn new technologies and collaborate on innovative
+          projects.
+        </p>
+        <a href="BobanBozicCV.pdf" download="My_CV.pdf" class="btn-2"
+          >Download CV</a
+        >
+      </div>
+    </section>
+
+    <!-- Skills section-->
+    <section class="skills" id="skills">
+      <h2 class="heading"><span>My</span> Skills</h2>
+      <div class="skills-container">
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-html5"></i>
+            <h4>HTML5</h4>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-css3"></i>
+            <h4>CSS</h4>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-javascript"></i>
+            <h4>JavaScript</h4>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-react"></i>
+            <h4>React</h4>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-nodejs"></i>
+            <h4>Node</h4>
+          </div>
+        </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-git"></i>
+            <h4>Git</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Projects section-->
+    <section class="projects" id="projects">
+      <h2 class="heading"><span>My</span> Projects</h2>
+      <div class="project-container">
+        <div class="card">
+          <div class="card-background">
+            <img
+              src="Project1.png"
+              alt="Inflation Calculator"
+            />
+          </div>
+          <div class="card-info">
+            <h3>Inflation Calculator</h3>
+            <p>
+              This inflation calculator helps you estimate the future value of money based on a given inflation rate and time period.
+            </p>
+            <p>Done With:</p>
+            <ul class="stacks">
+              <li class="stack">HTML</li>
+              <li class="stack">CSS</li>
+              <li class="stack">JavaScript</li>
+            </ul>
+            <div class="buttons">
+              <a href="#" class="btn-1">Live Demo</a>
+              <a href="#" class="btn-2">Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section-->
+    <section class="contact-form" id="contact">
+      <h2 class="contact-me">Contact <span>Me</span></h2>
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email" />
+        </div>
+
+        <div class="input-box">
+          <input type="number" placeholder="Phone Number" />
+          <input type="text" placeholder="Subject" />
+        </div>
+
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+        ></textarea>
+        <input type="submit" value="Send Message" class="btn-1" />
+      </form>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+      <div class="social">
+        <a href=""><i class="bx bxl-facebook-circle"></i></a>
+        <a href=""><i class="bx bxl-instagram-alt"></i></a>
+        <a href=""><i class="bx bxl-github"></i></a>
+        <a href=""><i class="bx bxl-linkedin-square"></i></a>
+      </div>
+
+      <ul class="list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+
+      <p class="copyright">&copy; 2024 Boban Bozic | All rights reserved</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
