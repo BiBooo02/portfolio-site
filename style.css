@@ -521,7 +521,39 @@ span {
   }
 
   .home {
-    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2em;
+    padding: 10px 5%;
+    padding-top: 150px;
+  }
+
+  .home-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 2rem;
+  }
+
+  .home-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .btn-box {
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-box .btn-1, .btn-box .btn-2 {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
   }
 
   .home .img-box {
