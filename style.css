@@ -102,10 +102,21 @@ span {
   align-items: center;
   gap: 7em;
   padding: 30px 12% 0;
+  position: relative;
+}
+
+#starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .home-content {
   max-width: 800px;
+  z-index: 1;
 }
 
 .home-content h3 {
@@ -163,6 +174,11 @@ span {
 .btn-2:hover {
   background-color: #fff;
   color: orangered;
+}
+
+.img-box {
+  position: relative;
+  z-index: 1;
 }
 
 .img-box img {
@@ -269,150 +285,181 @@ span {
 }
 
 .projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  text-align: center;
+  padding: 80px 20px;
+  background: #121212;
+  color: #fff;
 }
 
-.projects h2 {
-  font-size: 42px;
-  margin-top: 2rem;
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
 }
 
 .card {
-  padding: 10px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid #121212;
-  border-radius: 1.5rem;
-  background: #fff;
-  cursor: pointer;
+  background: #1e1e1e;
+  border-radius: 12px;
   overflow: hidden;
-  max-width: clamp(20rem, 70vw, 46.25rem);
-  min-width: 20rem;
-  min-height: 17.5rem;
-  transition: box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .card-background {
-  flex: 1 1 15rem;
+  position: relative;
+  width: 100%;
+  height: 200px;
 }
 
 .card-background img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 1.5rem;
 }
 
-.card-content {
-  flex: 3 1 22rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 1rem;
-}
-
-.card-content h3 {
-  font-size: clamp(1.3rem, 2.5 vw, 1.8rem);
-  font-weight: 700;
-  margin-bottom: clamp(0.35rem, 2vw, 0.55rem);
-}
-
-.card-content p {
-  font-size: clamp(1rem, 1.75vw, 1.1rem);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-weight: 400;
+.card-info {
+  padding: 20px;
+  text-align: left;
 }
 
 .card-info h3 {
   font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0.5rem 0;
+  margin-bottom: 10px;
+  color: orangered;
+}
+
+.card-info p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 12px;
 }
 
 .stacks {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
-  margin-top: auto;
-  padding: 0.75rem 0px 1rem 0px;
+  gap: 10px;
+  padding: 0;
+  margin: 15px 0;
 }
 
 .stack {
-  background: #f1f1f1;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: orangered;
-}
-
-.stack:hover {
   background: orangered;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
   color: #fff;
+  font-weight: bold;
 }
 
 .buttons {
   display: flex;
-  gap: 1rem;
-  margin-top: auto;
-  padding: 0.75rem 0px 1rem 0px;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .buttons a {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #fff;
-  cursor: pointer;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.project-btn-1 {
+  background: #1e1e1e;
+  color: white;
+  margin-right: 10px;
+  border: 1px solid orangered;
+}
+
+.project-btn-2 {
+  background: #fff;
+  color: #121212;
 }
 
 .buttons a:hover {
-  transform: translateY(-2px);
+  opacity: 0.8;
 }
 
-.contact-form h2 {
+.contact-form {
+  background: #f9f9f9;
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-me {
   text-align: center;
-  margin-top: 3em;
-  margin-bottom: 1em;
-  font-size: 36px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.contact-form form {
-  max-width: 50vw;
-  margin: 1rem auto;
-  text-align: center;
-  margin-bottom: 3em;
+.contact-me span {
+  color: orangered;
 }
 
-.contact-form .input-box {
+.input-group {
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-.contact-form .input-box input {
-  max-width: 45%;
+.input-field {
+  flex: 1;
 }
 
-.contact-form form .input-box input,
-.contact-form form textarea {
+.input-field input,
+.textarea-field textarea {
   width: 100%;
-  padding: 1.5em;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-field input:focus,
+.textarea-field textarea:focus {
+  border-color: orangered;
+}
+
+.textarea-field {
+  margin-bottom: 15px;
+}
+.btn-3 {
+  width: 100%;
+  padding: 12px;
   font-size: 18px;
-  color: #000;
-  background: rgb(241, 241, 241);
-  border-radius: 0.8rem;
-  margin: 1rem 0;
-  resize: none;
+  border: none;
+  border-radius: 6px;
+  background-color: orangered;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-3:hover {
+  background-color: darkorange;
 }
 
 .footer {
@@ -592,19 +639,23 @@ span {
     text-align: center;
   }
 
-  .contact-form form .input-box input,
-  .contact-form form textarea {
-    padding: 10px;
-    font-size: 12px;
-  }
-  
-  .contact-form .input-box {
-    flex-direction: column;
-    gap: 2px;
+  .project-container {
+    grid-template-columns: 1fr;
   }
 
-  .contact-form .input-box input {
-    max-width: 100%;
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons a {
+    flex-grow: unset;
+    width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .footer ul {

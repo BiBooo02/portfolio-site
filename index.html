@@ -31,6 +31,7 @@
 
     <!--Home Section-->
     <section class="home" id="home">
+      <canvas id="starfield"></canvas>
       <div class="home-content">
         <h3>Hi!</h3>
         <h1>
@@ -113,6 +114,12 @@
             <h4>Git</h4>
           </div>
         </div>
+        <div class="skill-box">
+          <div class="skill-info">
+            <i class="bx bxl-mongodb"></i>
+            <h4>MongoDB</h4>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -141,13 +148,13 @@
                 href="https://inflation-calculator-pi.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-1"
+                class="project-btn-1"
                 >Live Demo</a
               >
               <a
                 href="https://github.com/BiBooo02/inflation-calculator"
                 target="_blank"
-                class="btn-2"
+                class="project-btn-2"
                 >Source Code</a
               >
             </div>
@@ -176,13 +183,13 @@
                 href="https://todo-list-chi-six-33.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-1"
+                class="project-btn-1"
                 >Live Demo</a
               >
               <a
                 href="https://github.com/BiBooo02/todo-list"
                 target="_blank"
-                class="btn-2"
+                class="project-btn-2"
                 >Source Code</a
               >
             </div>
@@ -211,13 +218,47 @@
                 href="https://cs2-server-hosting.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-1"
+                class="project-btn-1"
                 >Live Demo</a
               >
               <a
                 href="https://github.com/BiBooo02/cs2-server-hosting"
                 target="_blank"
-                class="btn-2"
+                class="project-btn-2"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-background">
+            <img src="Project4.png" alt="Book Store" />
+          </div>
+          <div class="card-info">
+            <h3>Book Store(MERN app)</h3>
+            <p>
+              MERN application that allows users to add new book along with an image, title author and description and also delete the book.
+            </p>
+            <p>Done With:</p>
+            <ul class="stacks">
+              <li class="stack">MongoDB</li>
+              <li class="stack">Express.js</li>
+              <li class="stack">React</li>
+              <li class="stack">Node.js</li>
+            </ul>
+            <div class="buttons">
+              <a
+                href="https://book-store-zeta-gules.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-btn-1"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/BiBooo02/book-store"
+                target="_blank"
+                class="project-btn-2"
                 >Source Code</a
               >
             </div>
@@ -228,26 +269,31 @@
 
     <!-- Contact section-->
     <section class="contact-form" id="contact">
-      <h2 class="contact-me">Contact <span>Me</span></h2>
+      <h2 class="contact-me">Get in <span>Touch</span></h2>
       <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email" />
+        <div class="input-group">
+          <div class="input-field">
+            <input type="text" placeholder="Full Name" required />
+          </div>
+          <div class="input-field">
+            <input type="email" placeholder="Email" required />
+          </div>
         </div>
-
-        <div class="input-box">
-          <input type="number" placeholder="Phone Number" />
-          <input type="text" placeholder="Subject" />
+        
+        <div class="input-group">
+          <div class="input-field">
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="Subject" required />
+          </div>
         </div>
-
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-        ></textarea>
-        <input type="submit" value="Send Message" class="btn-1" />
+        
+        <div class="textarea-field">
+          <textarea placeholder="Your Message" rows="6" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-3">Send Message</button>
       </form>
     </section>
 
