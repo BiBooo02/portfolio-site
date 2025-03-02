@@ -136,3 +136,28 @@ document.addEventListener("DOMContentLoaded", () => {
   createStars();
   drawStars();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init(import.meta.env.EMAILJS_PB_KEY);
+});
+
+function sendMail() {
+  var params = {
+    sendername: document.querySelector("#sendername").value,
+    subject: document.querySelector("#subject").value,
+    replyto: document.querySelector("#replyto").value,
+    message: document.querySelector("#message").value,
+  };
+
+  emailjs
+    .send(
+      import.meta.env.EMAILJS_SRV_KEY,
+      import.meta.env.EMAILJS_TEMPLATE_ID,
+      params
+    )
+    .then(() => alert("Email Sent Successfully!"))
+    .catch((err) => {
+      console.error("EmailJS Error:", err);
+      alert("Something went wrong. Please try again.");
+    });
+}
