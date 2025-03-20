@@ -177,17 +177,23 @@ span {
 }
 
 .img-box {
-  position: relative;
+  width: 50vw;
+  height: 50vw;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
 }
 
 .img-box img {
-  border-radius: 50%;
-  width: 550px;
-}
-
-::-webkit-scrollbar {
-  width: 7px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center top;
 }
 
 ::-webkit-scrollbar-thumb {
