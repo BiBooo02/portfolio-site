@@ -5,344 +5,323 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boban Bozic Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://unpkg.com/nes.css@2.2.1/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
-    <!--Header with nav included-->
+    <!-- pixel marching-ant ticker at very top -->
+    <div class="pixel-ticker" aria-hidden="true"></div>
+
     <header class="header">
-      <a href="#home" class="logo"><span>B</span>Bozic</a>
+      <a href="#home" class="logo">B.BOZIC</a>
 
       <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <a href="#contact" class="contact">Contact Me</a>
-
-      <div class="hamburger" onclick="toggleMenu()">
-        <i class="bx bx-menu"></i>
-      </div>
+      <button
+        type="button"
+        class="hamburger nes-btn"
+        onclick="toggleMenu()"
+        aria-label="Toggle menu"
+      >
+        MENU
+      </button>
     </header>
 
-    <!--Home Section-->
-    <section class="home" id="home">
-      <canvas id="starfield"></canvas>
-      <div class="home-content">
-        <h3>Hi!</h3>
-        <h1>
-          I'm <span>Boban Bozic, <br /></span>a Mobile & Web Developer
-        </h1>
-        <p>
-          My focus is on building accessible, responsive, and dynamic interfaces
-          that adapt seamlessly across all devices.
-        </p>
-
-        <div class="btn-box">
-          <a href="#contact" class="btn-1">Hire me</a>
-          <a
-            href="Boban_Bozic_CV.pdf"
-            download="Boban_Bozic_CV.pdf"
-            class="btn-2"
-            >Download CV</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!--About section-->
-    <section class="about" id="about">
-      <div class="about-img">
-        <img src="img/about.png" alt="about image" />
-      </div>
-      <div class="about-content">
-        <h2 class="heading">About <span>Me</span></h2>
-        <h3>Frontend <span>Developer</span></h3>
-        <p>
-          I am a front-end developer with a passion for crafting intuitive and
-          accessible web experiences. With expertise in HTML, CSS, JavaScript,
-          and modern frameworks like React, I specialize in bringing creative
-          designs to life. I thrive on solving complex problems and am always
-          excited to learn new technologies and collaborate on innovative
-          projects.
-        </p>
-        <a href="Boban_Bozic_CV.pdf" download="Boban_Bozic_CV.pdf" class="btn-2"
-          >Download CV</a
-        >
-      </div>
-    </section>
-
-    <!-- Skills section-->
-    <section class="skills" id="skills">
-      <h2 class="heading"><span>My</span> Skills</h2>
-      <div class="skills-container">
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-html5"></i>
-            <h4>HTML5</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-css3"></i>
-            <h4>CSS</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-javascript"></i>
-            <h4>JavaScript</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-react"></i>
-            <h4>React</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-nodejs"></i>
-            <h4>Node</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-git"></i>
-            <h4>Git</h4>
-          </div>
-        </div>
-        <div class="skill-box">
-          <div class="skill-info">
-            <i class="bx bxl-mongodb"></i>
-            <h4>MongoDB</h4>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--Projects section-->
-    <section class="projects" id="projects">
-      <h2 class="heading"><span>My</span> Projects</h2>
-      <div class="project-container">
-        <div class="card">
-          <div class="card-background">
-            <img src="img/Project5.png" alt="Delta Tools" />
-          </div>
-          <div class="card-info">
-            <h3>Delta Tools</h3>
-            <p>
-              A website for a tech tools company. Featuring a sleek
-              design, responsive layout, admin panel and interactive elements, this site
-              showcases the company's products and services.
+    <main>
+      <!-- Home Section -->
+      <section class="home section" id="home">
+        <canvas id="starfield" aria-hidden="true"></canvas>
+        <div class="section-inner">
+          <div class="home-panel">
+            <h1>Hi!</h1>
+            <p class="home-tagline">
+              I'm <span class="accent">Boban Bozic</span>, a Mobile &amp; Web
+              Developer.
             </p>
-            <p>Done With:</p>
-            <ul class="stacks">
-              <li class="stack">Vue</li>
-              <li class="stack">Node.js</li>
-              <li class="stack">MongoDB</li>
-            </ul>
-            <div class="buttons">
+            <p class="home-desc">
+              I build accessible, responsive interfaces that work on every
+              screen.
+            </p>
+            <div class="btn-box">
+              <a href="#contact" class="nes-btn is-primary">Hire me</a>
               <a
-                href="https://deltatools.ba/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-btn-1"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BiBooo02/deltatools"
-                target="_blank"
-                class="project-btn-2"
-                >Source Code</a
+                href="Boban_Bozic_CV.pdf"
+                download="Boban_Bozic_CV.pdf"
+                class="nes-btn"
+                >Download CV</a
               >
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-background">
-            <img src="img/Project1.png" alt="Inflation Calculator" />
-          </div>
-          <div class="card-info">
-            <h3>Inflation Calculator</h3>
-            <p>
-              This inflation calculator helps you estimate the future value of
-              money based on a given inflation rate and time period.
-            </p>
-            <p>Done With:</p>
-            <ul class="stacks">
-              <li class="stack">HTML</li>
-              <li class="stack">CSS</li>
-              <li class="stack">JavaScript</li>
-            </ul>
-            <div class="buttons">
-              <a
-                href="https://inflation-calculator-pi.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-btn-1"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BiBooo02/inflation-calculator"
-                target="_blank"
-                class="project-btn-2"
-                >Source Code</a
-              >
+      </section>
+
+      <div class="pixel-divider" aria-hidden="true"></div>
+
+      <!-- About section -->
+      <section class="about section" id="about">
+        <div class="section-inner">
+          <div class="nes-container is-dark with-title reveal">
+            <p class="title">About Me</p>
+            <div class="about-layout">
+              <div class="about-photo-wrap">
+                <img
+                  class="about-photo"
+                  src="img/about.png"
+                  alt="Boban Bozic"
+                />
+              </div>
+              <div class="about-content">
+                <p class="role">
+                  Frontend <span class="accent">Developer</span>
+                </p>
+                <p>
+                  Front-end developer focused on intuitive, accessible web
+                  experiences. HTML, CSS, JavaScript, React — turning ideas into
+                  working products.
+                </p>
+                <a
+                  href="Boban_Bozic_CV.pdf"
+                  download="Boban_Bozic_CV.pdf"
+                  class="nes-btn is-success"
+                  >Download CV</a
+                >
+              </div>
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-background">
-            <img src="img/Project2.png" alt="Todo List" />
-          </div>
-          <div class="card-info">
-            <h3>Todo List</h3>
-            <p>
-              A simple and intuitive to-do list application that helps users
-              organize tasks efficiently. Featuring multiple lists, custom
-              icons, and a user-friendly interface, this app makes task
-              management seamless and productive.
-            </p>
-            <p>Done With:</p>
-            <ul class="stacks">
-              <li class="stack">React</li>
-              <li class="stack">JavaScript</li>
-              <li class="stack">Material UI</li>
-            </ul>
-            <div class="buttons">
-              <a
-                href="https://todo-list-chi-six-33.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-btn-1"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BiBooo02/todo-list"
-                target="_blank"
-                class="project-btn-2"
-                >Source Code</a
-              >
+      </section>
+
+      <div class="pixel-divider" aria-hidden="true"></div>
+
+      <!-- Skills section -->
+      <section class="skills section" id="skills">
+        <div class="section-inner">
+          <h2 class="section-title"><span class="accent">My</span> Skills</h2>
+          <div class="skills-container reveal">
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-html5"></i>
+                <h4>HTML5</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-css3"></i>
+                <h4>CSS</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-javascript"></i>
+                <h4>JavaScript</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-react"></i>
+                <h4>React</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-nodejs"></i>
+                <h4>Node.js</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-git"></i>
+                <h4>Git</h4>
+              </div>
+            </div>
+            <div class="skill-box">
+              <div class="skill-info">
+                <i class="bx bxl-mongodb"></i>
+                <h4>MongoDB</h4>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="card">
-          <div class="card-background">
-            <img src="img/Project3.png" alt="CS2 Server Hosting" />
-          </div>
-          <div class="card-info">
-            <h3>CS2 Server Hosting</h3>
-            <p>
-              A website for a fictional game server hosting company. Featuring a
-              modern design, responsive layout, and interactive elements, this
-              site showcases the company's services and pricing plans.
-            </p>
-            <p>Done With:</p>
-            <ul class="stacks">
-              <li class="stack">HTML</li>
-              <li class="stack">CSS</li>
-              <li class="stack">JavaScript</li>
-            </ul>
-            <div class="buttons">
-              <a
-                href="https://cs2-server-hosting.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-btn-1"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BiBooo02/cs2-server-hosting"
-                target="_blank"
-                class="project-btn-2"
-                >Source Code</a
-              >
+      <div class="pixel-divider" aria-hidden="true"></div>
+
+      <!-- Projects section -->
+      <section class="projects section" id="projects">
+        <div class="section-inner">
+          <h2 class="section-title"><span class="accent">My</span> Projects</h2>
+          <div class="project-container">
+
+            <div class="nes-container is-dark with-title project-card reveal">
+              <p class="title">Delta Tools</p>
+              <img class="project-img" src="img/Project5.png" alt="Delta Tools" />
+              <p>
+                Tech tools company site — responsive layout, admin panel, and
+                interactive product showcase.
+              </p>
+              <p class="label">Stack:</p>
+              <div class="stacks">
+                <span>Vue</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+              </div>
+              <div class="buttons">
+                <a href="https://deltatools.ba/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
+                <a href="https://github.com/BiBooo02/deltatools" target="_blank" class="nes-btn">Source</a>
+              </div>
             </div>
+
+            <div class="nes-container is-dark with-title project-card reveal">
+              <p class="title">Inflation Calc</p>
+              <img class="project-img" src="img/Project1.png" alt="Inflation Calculator" />
+              <p>
+                Estimate future money value from inflation rate and time period.
+              </p>
+              <p class="label">Stack:</p>
+              <div class="stacks">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+              </div>
+              <div class="buttons">
+                <a href="https://inflation-calculator-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
+                <a href="https://github.com/BiBooo02/inflation-calculator" target="_blank" class="nes-btn">Source</a>
+              </div>
+            </div>
+
+            <div class="nes-container is-dark with-title project-card reveal">
+              <p class="title">Todo List</p>
+              <img class="project-img" src="img/Project2.png" alt="Todo List" />
+              <p>
+                Task manager with multiple lists, custom icons, and a clean UI.
+              </p>
+              <p class="label">Stack:</p>
+              <div class="stacks">
+                <span>React</span>
+                <span>JS</span>
+                <span>MUI</span>
+              </div>
+              <div class="buttons">
+                <a href="https://todo-list-chi-six-33.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
+                <a href="https://github.com/BiBooo02/todo-list" target="_blank" class="nes-btn">Source</a>
+              </div>
+            </div>
+
+            <div class="nes-container is-dark with-title project-card reveal">
+              <p class="title">CS2 Hosting</p>
+              <img class="project-img" src="img/Project3.png" alt="CS2 Server Hosting" />
+              <p>
+                Fictional game server host — services, pricing, and interactive
+                elements.
+              </p>
+              <p class="label">Stack:</p>
+              <div class="stacks">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+              </div>
+              <div class="buttons">
+                <a href="https://cs2-server-hosting.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
+                <a href="https://github.com/BiBooo02/cs2-server-hosting" target="_blank" class="nes-btn">Source</a>
+              </div>
+            </div>
+
           </div>
         </div>
-        
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact section-->
-    <section class="contact-form" id="contact">
-      <h2 class="contact-me">Get in <span>Touch</span></h2>
-      <form action="#">
-        <div class="input-group">
-          <div class="input-field">
-            <input
-              type="text"
-              id="sendername"
-              placeholder="Full Name"
-              required
-            />
-          </div>
-          <div class="input-field">
-            <input type="email" id="replyto" placeholder="Email" required />
+      <div class="pixel-divider" aria-hidden="true"></div>
+
+      <!-- Contact section -->
+      <section class="contact section" id="contact">
+        <div class="section-inner">
+          <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
+          <div class="nes-container is-dark contact-panel reveal">
+            <form action="#" onsubmit="return false;">
+              <div class="input-row">
+                <div class="nes-field">
+                  <label for="sendername">Name</label>
+                  <input type="text" id="sendername" class="nes-input" required />
+                </div>
+                <div class="nes-field">
+                  <label for="replyto">Email</label>
+                  <input type="email" id="replyto" class="nes-input" required />
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="nes-field">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" class="nes-input" required />
+                </div>
+                <div class="nes-field">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" class="nes-input" required />
+                </div>
+              </div>
+              <div class="nes-field">
+                <label for="message">Message</label>
+                <textarea id="message" class="nes-textarea" rows="5" required></textarea>
+              </div>
+              <button
+                type="button"
+                onclick="sendMail();"
+                class="nes-btn is-primary btn-submit"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div class="input-group">
-          <div class="input-field">
-            <input type="tel" placeholder="Phone Number" required />
-          </div>
-          <div class="input-field">
-            <input type="text" id="subject" placeholder="Subject" required />
-          </div>
-        </div>
-
-        <div class="textarea-field">
-          <textarea
-            id="message"
-            placeholder="Your Message"
-            rows="6"
-            required
-          ></textarea>
-        </div>
-
-        <button onclick="sendMail();" class="btn-3">Send Message</button>
-      </form>
-    </section>
-
-    <!--Footer-->
     <footer class="footer">
-      <div class="social">
-        <a href="https://www.facebook.com/boban.bozic.79/"
-          ><i class="bx bxl-facebook-circle"></i
-        ></a>
-        <a href="https://www.instagram.com/bbozic02/"
-          ><i class="bx bxl-instagram-alt"></i
-        ></a>
-        <a href="https://github.com/BiBooo02" target="_blank"
-          ><i class="bx bxl-github"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/boban-bozic/"><i class="bx bxl-linkedin-square"></i></a>
+      <div class="section-inner">
+        <div class="nes-container is-dark footer-panel">
+          <div class="social">
+            <a href="https://www.facebook.com/boban.bozic.79/" target="_blank" rel="noopener noreferrer" title="Facebook">
+              <i class="nes-icon facebook is-medium"></i>
+            </a>
+            <a href="https://www.instagram.com/bbozic02/" target="_blank" rel="noopener noreferrer" title="Instagram">
+              <i class="nes-icon instagram is-medium"></i>
+            </a>
+            <a href="https://github.com/BiBooo02" target="_blank" rel="noopener noreferrer" title="GitHub">
+              <i class="nes-icon github is-medium"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/boban-bozic/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-text"><i class="nes-icon linkedin is-medium"></i></a>
+          </div>
+          <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <p class="copyright">&copy; 2026 Boban Bozic</p>
+        </div>
       </div>
-
-      <ul class="list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-      </ul>
-
-      <p class="copyright">&copy; 2026 Boban Bozic | All rights reserved</p>
     </footer>
 
     <script src="main.js"></script>
     <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
+      window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </body>
