@@ -33,7 +33,6 @@ a:visited {
   text-decoration: none !important;
 }
 
-/* ─── Theme Variables ─── */
 :root {
   --bg: #ffffff;
   --bg2: #f4f4f4;
@@ -41,7 +40,6 @@ a:visited {
   --accent: #111111;
   --accent2: #555555;
   --border: #111111;
-  --card-bg: #ffffff;
   --shadow: 6px 6px 0px #111111;
   --shadow-hover: 2px 2px 0px #111111;
 }
@@ -52,37 +50,26 @@ body {
   line-height: 1.8;
 }
 
-/* ─── Pixel blink cursor ─── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 
-/* ─── Pixel fade-in ─── */
 @keyframes pixelIn {
   0%   { opacity: 0; transform: translateY(12px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Slide in from left ─── */
 @keyframes slideLeft {
   from { opacity: 0; transform: translateX(-24px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* ─── Pixel bounce ─── */
 @keyframes pixelBounce {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-6px); }
 }
 
-/* ─── Scanline shimmer on cards ─── */
-@keyframes scanline {
-  0%   { background-position: 0 0; }
-  100% { background-position: 0 80px; }
-}
-
-/* ─── Walk cycle for a sprite-like dot ─── */
 @keyframes marchRight {
   from { transform: translateX(-100%); }
   to   { transform: translateX(calc(100vw + 100%)); }
@@ -101,7 +88,8 @@ body {
   padding: 6rem 0 4rem;
 }
 
-.skills.section {
+.skills-track {
+  width: 100%;
   overflow: hidden;
 }
 
@@ -122,10 +110,9 @@ body {
   height: 4px;
   background: var(--border);
   margin-top: 0.75rem;
-  image-rendering: pixelated;
 }
 
-/* ─── Header ─── */
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -177,9 +164,7 @@ body {
 }
 
 .nav-link:hover::after,
-.nav-link.active::after {
-  opacity: 1;
-}
+.nav-link.active::after { opacity: 1; }
 
 .nav-link:hover,
 .nav-link.active {
@@ -196,7 +181,6 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* ─── Pixel marching ant bar ─── */
 .pixel-ticker {
   width: 100%;
   height: 6px;
@@ -212,7 +196,7 @@ body {
   z-index: 200;
 }
 
-/* ─── Home ─── */
+/* Home */
 .home {
   min-height: 100vh;
   display: flex;
@@ -236,7 +220,7 @@ body {
   z-index: 1;
 }
 
-/* Override nes-container for light theme */
+/* NES container light theme override */
 .nes-container,
 .nes-container.is-dark,
 .nes-container.is-dark.with-title {
@@ -261,25 +245,39 @@ body {
   background: #ffffff !important;
 }
 
+/* About: no container box */
+.about .nes-container {
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+.about .nes-container:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+.about .nes-container::before,
+.about .nes-container::after {
+  display: none !important;
+}
+.about .nes-container.with-title > .title {
+  display: none;
+}
+
+/* Home panel */
 .home-panel {
   max-width: 780px;
   animation: pixelIn 0.6s steps(6) both;
 }
 
-.home-panel .title {
-  font-size: 0.9rem;
-  color: var(--accent2);
-}
-
 .home-panel h1 {
   font-size: 2.5rem;
-  margin: 1.25rem 0 0.75rem;
+  margin: 0 0 0.75rem;
   color: var(--text) !important;
   position: relative;
   display: inline-block;
 }
 
-/* blinking cursor after H1 */
 .home-panel h1::after {
   content: '▌';
   animation: blink 0.8s steps(1) infinite;
@@ -307,37 +305,18 @@ body {
   animation: pixelIn 0.6s steps(6) 0.6s both;
 }
 
-/* Override NES buttons for light theme */
 .nes-btn {
   font-size: 0.9rem !important;
 }
 
-.nes-btn.is-primary {
-}
-
-.nes-btn.is-success {
-}
-
-/* ─── About ─── */
-.about .nes-container {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.about .nes-container.with-title > .title {
-  display: none;
-}
-
+/* About */
 .about-layout {
   display: flex;
   align-items: center;
   gap: 3.5rem;
 }
 
-.about-photo-wrap {
-  flex-shrink: 0;
-}
+.about-photo-wrap { flex-shrink: 0; }
 
 .about-photo {
   display: block;
@@ -351,9 +330,7 @@ body {
   transition: filter 0.2s steps(3);
 }
 
-.about-photo:hover {
-  filter: grayscale(0%) contrast(1);
-}
+.about-photo:hover { filter: grayscale(0%) contrast(1); }
 
 .about-content {
   flex: 1;
@@ -374,34 +351,24 @@ body {
   line-height: 2;
 }
 
-.about-content .nes-btn {
-  font-size: 0.9rem;
+/* Skills — RAF scroll, no CSS animation */
+.skills.section {
+  overflow: hidden;
 }
 
-/* ─── Skills ─── */
 .skills-container {
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: scrollSkills 45s linear infinite;
-  margin: 0 auto;
+  will-change: transform;
 }
 
-@keyframes scrollSkills {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-50%));
-  }
-}
 
 .skill-box {
   background: #ffffff !important;
   border: 4px solid var(--border) !important;
   box-shadow: var(--shadow);
   padding: 1.5rem;
-  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
   text-align: center;
   min-height: 120px;
   min-width: 180px;
@@ -413,7 +380,6 @@ body {
 
 .skill-box:hover {
   box-shadow: var(--shadow-hover);
-  transform: translate(4px, 4px);
 }
 
 .skill-info {
@@ -424,51 +390,31 @@ body {
   gap: 0.75rem;
 }
 
-.skill-info i {
-  font-size: 2rem;
-  color: var(--text);
-}
+.skill-info i { font-size: 2rem; color: var(--text); }
+.skill-info h4 { font-size: 0.9rem; color: var(--text); margin: 0; line-height: 1.4; }
 
-.skill-info h4 {
-  font-size: 0.9rem;
-  color: var(--text);
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* ─── Projects ─── */
+/* Projects */
 .project-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.project-card .title {
-  font-size: 1rem;
-  color: var(--text);
-}
+.project-card .title { font-size: 1rem; color: var(--text); }
 
 .project-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
   margin: 1.25rem 0;
-  image-rendering: auto;
   border: 4px solid var(--border);
   filter: grayscale(60%);
   transition: filter 0.2s steps(3), transform 0.1s steps(2);
 }
 
-.project-img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
-}
+.project-img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-/* scanline effect overlay on cards */
-.project-card {
-  position: relative;
-  overflow: hidden;
-}
+.project-card { position: relative; overflow: hidden; }
 
 .project-card::after {
   content: '';
@@ -476,34 +422,21 @@ body {
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
-    transparent 0px,
-    transparent 3px,
-    rgba(0,0,0,0.03) 3px,
-    rgba(0,0,0,0.03) 4px
+    transparent 0px, transparent 3px,
+    rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px
   );
   pointer-events: none;
   z-index: 2;
 }
 
-.project-card p {
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
-  line-height: 2;
-}
-
-.project-card .label {
-  font-size: 0.75rem;
-  opacity: 0.6;
-  margin-bottom: 0.75rem;
-}
+.project-card p { font-size: 0.8rem; margin-bottom: 1rem; opacity: 0.8; line-height: 2; }
+.project-card .label { font-size: 0.75rem; opacity: 0.6; margin-bottom: 0.75rem; }
 
 .stacks {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
-  justify-content: center;
 }
 
 .stacks span {
@@ -517,16 +450,9 @@ body {
   transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
 }
 
-.stacks span:hover {
-  transform: translate(2px, 2px);
-  box-shadow: none;
-}
+.stacks span:hover { transform: translate(2px, 2px); box-shadow: none; }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
+.buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
 .buttons .nes-btn {
   font-size: 0.75rem !important;
@@ -535,45 +461,46 @@ body {
   text-align: center;
 }
 
-/* ─── Contact ─── */
+/* Contact */
 .contact-panel {
   border: 4px solid var(--border) !important;
   background: #ffffff !important;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow) !important;
 }
 
-.contact-panel form {
-  width: 100%;
+.contact-panel::before,
+.contact-panel::after {
+  display: none !important;
 }
 
-.input-row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-}
+.contact-panel form { width: 100%; }
 
-.input-row .nes-field {
-  flex: 1;
-}
+.input-row { display: flex; gap: 1rem; margin-bottom: 0.75rem; }
+.input-row .nes-field { flex: 1; }
+.nes-field label { font-size: 0.75rem; color: var(--text); }
 
-.nes-field label {
-  font-size: 0.75rem;
-  color: var(--text);
-}
-
+/*
+  NES.css draws its "pixel border" using a layered box-shadow pattern
+  that only covers right + bottom edges by default.
+  We nuke their shadow entirely and draw our own solid 4-sided outline.
+*/
 .nes-input,
 .nes-textarea {
   font-size: 0.8rem !important;
   background: var(--bg) !important;
   color: var(--text) !important;
-  border-color: var(--border) !important;
-  box-shadow: inset 2px 2px 0 #ddd;
+  border: none !important;
+  outline: 3px solid var(--border) !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  padding: 0.5rem !important;
 }
 
 .nes-input:focus,
 .nes-textarea:focus {
-  outline: none;
-  box-shadow: inset 2px 2px 0 #aaa, 0 0 0 2px var(--border);
+  border: none !important;
+  outline: 3px solid var(--border) !important;
+  box-shadow: 0 0 0 5px #aaa !important;
 }
 
 .btn-submit {
@@ -583,40 +510,22 @@ body {
   padding: 1rem !important;
 }
 
-/* ─── Footer ─── */
+/* Footer */
 .footer {
   padding: 2.5rem 0 3.5rem;
   border-top: 4px solid var(--border);
 }
 
-.footer-panel {
-  text-align: center;
-}
+.footer-panel { text-align: center; }
 
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-bottom: 1.75rem;
-}
+.social { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.75rem; }
 
 .social a {
   display: inline-block;
-  filter: grayscale(100%) invert(0);
-  transition: transform 0.1s steps(2), filter 0.15s steps(3);
+  transition: transform 0.1s steps(2);
 }
 
-.social a:hover {
-  transform: translateY(-4px);
-  filter: grayscale(0%);
-}
-
-.social-text {
-  font-size: 1rem;
-  line-height: 2.5rem;
-  vertical-align: middle;
-  color: var(--text) !important;
-}
+.social a:hover { transform: translateY(-4px); }
 
 .footer-nav {
   display: flex;
@@ -633,14 +542,8 @@ body {
   transition: border-color 0.1s steps(1);
 }
 
-.footer-nav a:hover {
-  border-bottom-color: var(--border);
-}
-
-.copyright {
-  font-size: 0.7rem;
-  opacity: 0.55;
-}
+.footer-nav a:hover { border-bottom-color: var(--border); }
+.copyright { font-size: 0.7rem; opacity: 0.55; }
 
 .nes-container.with-title > .title {
   font-size: 0.9rem;
@@ -648,7 +551,6 @@ body {
   color: var(--text);
 }
 
-/* ─── Pixel divider between sections ─── */
 .pixel-divider {
   width: 100%;
   height: 8px;
@@ -661,47 +563,22 @@ body {
   margin: 0;
 }
 
-/* ─── Scrollbar ─── */
-::-webkit-scrollbar {
-  width: 12px;
-}
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-thumb { background-color: var(--border); border: 2px solid var(--bg); }
+::-webkit-scrollbar-track { background-color: var(--bg2); }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--border);
-  border: 2px solid var(--bg);
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--bg2);
-}
-
-/* ─── Scroll-reveal utility ─── */
 .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s steps(5), transform 0.5s steps(5);
 }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ─── Responsive ─── */
 @media screen and (max-width: 768px) {
   html { font-size: 16px; }
-
-  .header {
-    padding: 0.75rem 1rem;
-  }
-
-  .logo {
-    font-size: 0.8rem;
-  }
-
-  .hamburger {
-    display: block;
-  }
+  .header { padding: 0.75rem 1rem; }
+  .logo { font-size: 0.8rem; }
+  .hamburger { display: block; }
 
   .navbar {
     position: absolute;
@@ -719,88 +596,22 @@ body {
     transition: transform 0.2s steps(4), opacity 0.2s;
   }
 
-  .navbar.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-link {
-    font-size: 0.75rem;
-  }
-
-  .home {
-    padding-top: 5rem;
-  }
-
-  .home-panel h1 {
-    font-size: 1.6rem;
-  }
-
-  .home-tagline {
-    font-size: 0.95rem;
-  }
-
-  .home-desc {
-    font-size: 0.8rem;
-  }
-
-  .btn-box {
-    flex-direction: column;
-  }
-
-  .btn-box .nes-btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .about-layout {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-photo {
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .about-content .nes-btn {
-    display: inline-block;
-  }
-
-  .input-row {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .buttons .nes-btn {
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: 1.15rem;
-  }
-
-  .skills-container {
-    animation: scrollSkills 50s linear infinite;
-  }
-
-  .skill-box {
-    min-width: 140px;
-    padding: 1rem;
-    min-height: 100px;
-  }
-
-  .skill-info i {
-    font-size: 1.5rem;
-  }
-
-  .skill-info h4 {
-    font-size: 0.8rem;
-  }
+  .navbar.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-link { font-size: 0.75rem; }
+  .home { padding-top: 5rem; }
+  .home-panel h1 { font-size: 1.6rem; }
+  .home-tagline { font-size: 0.95rem; }
+  .home-desc { font-size: 0.8rem; }
+  .btn-box { flex-direction: column; }
+  .btn-box .nes-btn { width: 100%; text-align: center; }
+  .about-layout { flex-direction: column; align-items: center; text-align: center; }
+  .about-photo { width: 100%; max-width: 360px; }
+  .about-content .nes-btn { display: inline-block; }
+  .input-row { flex-direction: column; gap: 0; }
+  .buttons { flex-direction: column; }
+  .buttons .nes-btn { width: 100%; }
+  .section-title { font-size: 1.15rem; }
+  .skill-box { min-width: 140px; padding: 1rem; min-height: 100px; }
+  .skill-info i { font-size: 1.5rem; }
+  .skill-info h4 { font-size: 0.8rem; }
 }
