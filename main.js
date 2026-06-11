@@ -113,10 +113,10 @@ function toggleMenu() {
   document.querySelector(".navbar").classList.toggle("active");
 }
 
-document.addEventListener("DOMContentLoaded", () => emailjs.init("8LhyvtJ8r5V4p7mMY"));
+document.addEventListener("DOMContentLoaded", () => emailjs.init("OCWrKwXsQnn2K_X8K"));
 
 function sendMail() {
-  emailjs.send("service_w09kcub", "template_ou30u5w", {
+  emailjs.send("service_df4eosr", "template_v1isyyh", {
     sendername: document.querySelector("#sendername").value,
     subject:    document.querySelector("#subject").value,
     replyto:    document.querySelector("#replyto").value,
