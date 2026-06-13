@@ -80,6 +80,10 @@ if (skillsContainer) {
   const ctx = canvas.getContext("2d");
   let stars = [];
 
+  function getStarColor() {
+    return getComputedStyle(document.documentElement).getPropertyValue("--text").trim() || "#111";
+  }
+
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = document.querySelector(".home").offsetHeight;
@@ -96,7 +100,7 @@ if (skillsContainer) {
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#111";
+    ctx.fillStyle = getStarColor();
     stars.forEach((s) => {
       ctx.fillRect(s.x, s.y, s.size, s.size);
       s.y += s.speed;
@@ -113,15 +117,55 @@ function toggleMenu() {
   document.querySelector(".navbar").classList.toggle("active");
 }
 
+// Theme handling
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  document.querySelectorAll(".theme-toggle i").forEach((icon) => {
+    icon.className = theme === "dark" ? "bx bx-sun" : "bx bx-moon";
+  });
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  applyTheme(current === "dark" ? "light" : "dark");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Sync the toggle icon with the theme applied by the inline script in <head>
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  document.querySelectorAll(".theme-toggle i").forEach((icon) => {
+    icon.className = current === "dark" ? "bx bx-sun" : "bx bx-moon";
+  });
+});
+
 document.addEventListener("DOMContentLoaded", () => emailjs.init("OCWrKwXsQnn2K_X8K"));
+
+function showToast(message, type) {
+  const toast = document.getElementById("toast");
+  const icon = type === "success" ? "bx-check-circle" : "bx-error-circle";
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<i class="bx ${icon}"></i><span>${message}</span>`;
+  toast.classList.add("show");
+
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => toast.classList.remove("show"), 4000);
+}
 
 function sendMail() {
   emailjs.send("service_df4eosr", "template_v1isyyh", {
     sendername: document.querySelector("#sendername").value,
     subject:    document.querySelector("#subject").value,
     replyto:    document.querySelector("#replyto").value,
+    phone:      document.querySelector("#phone").value,
     message:    document.querySelector("#message").value,
   })
-  .then(() => alert("Email Sent Successfully!"))
-  .catch((err) => { console.error(err); alert("Something went wrong. Please try again."); });
+  .then(() => {
+    showToast("Message sent successfully!", "success");
+    document.querySelector(".contact-panel form").reset();
+  })
+  .catch((err) => {
+    console.error(err);
+    showToast("Something went wrong. Please try again.", "error");
+  });
 }

@@ -16,6 +16,14 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // Apply saved/preferred theme before paint to avoid a flash of the wrong theme
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
   <body>
     <!-- pixel marching-ant ticker at very top -->
@@ -30,6 +38,14 @@
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <button
+          type="button"
+          class="theme-toggle nes-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle dark mode"
+        >
+          <i class="bx bx-moon"></i>
+        </button>
       </nav>
 
       <button
@@ -170,7 +186,6 @@
           <div class="project-container">
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <p class="title">Delta Tools</p>
               <img class="project-img" src="img/Project5.png" alt="Delta Tools" />
               <p>
                 Tech tools company site — responsive layout, admin panel, and
@@ -189,7 +204,6 @@
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <p class="title">Inflation Calc</p>
               <img class="project-img" src="img/Project1.png" alt="Inflation Calculator" />
               <p>
                 Estimate future money value from inflation rate and time period.
@@ -207,7 +221,6 @@
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <p class="title">Todo List</p>
               <img class="project-img" src="img/Project2.png" alt="Todo List" />
               <p>
                 Task manager with multiple lists, custom icons, and a clean UI.
@@ -225,7 +238,6 @@
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <p class="title">CS2 Hosting</p>
               <img class="project-img" src="img/Project3.png" alt="CS2 Server Hosting" />
               <p>
                 Fictional game server host — services, pricing, and interactive
@@ -318,7 +330,7 @@
         </div>
       </div>
     </footer>
-
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="main.js"></script>
     <script>
       window.va = window.va || function () {
