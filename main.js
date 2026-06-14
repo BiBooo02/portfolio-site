@@ -153,6 +153,13 @@ function showToast(message, type) {
 }
 
 function sendMail() {
+  const form = document.querySelector(".contact-panel form");
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    showToast("Please fill out all fields correctly.", "error");
+    return;
+  }
+
   emailjs.send("service_df4eosr", "template_v1isyyh", {
     sendername: document.querySelector("#sendername").value,
     subject:    document.querySelector("#subject").value,

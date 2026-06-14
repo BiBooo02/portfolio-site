@@ -324,8 +324,10 @@ body {
 .home-panel h1::after {
   content: '▌';
   animation: blink 0.8s steps(1) infinite;
-  font-size: 2rem;
+  font-size: 0.75em;
   margin-left: 0.15em;
+  position: relative;
+  top: -0.5em;
 }
 
 .home-tagline {
