@@ -217,7 +217,7 @@ body {
   background: var(--text) !important;
   color: var(--bg) !important;
   border: 3px solid var(--border);
-  box-shadow: var(--shadow);
+  box-shadow: none !important;
 }
 
 .pixel-ticker {
@@ -327,7 +327,7 @@ body {
   font-size: 0.75em;
   margin-left: 0.15em;
   position: relative;
-  top: -0.5em;
+  top: -0.4em;
 }
 
 .home-tagline {
