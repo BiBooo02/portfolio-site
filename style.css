@@ -396,6 +396,50 @@ body {
   line-height: 2;
 }
 
+/* Experience */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  border: 4px solid var(--border) !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow) !important;
+  transition: background-color 0.2s steps(4), color 0.2s steps(4),
+    border-color 0.2s steps(4), box-shadow 0.1s steps(2), transform 0.1s steps(2);
+}
+
+.experience-card::before,
+.experience-card::after {
+  display: none !important;
+}
+
+.experience-card.with-title > .title,
+.experience-card .title {
+  font-size: 1rem;
+  color: var(--text) !important;
+  background: var(--bg) !important;
+}
+
+.experience-meta {
+  font-size: 0.75rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.experience-card p:last-child {
+  font-size: 0.8rem;
+  line-height: 2;
+  color: var(--text);
+  opacity: 0.85;
+}
+
 /* Skills — RAF scroll, no CSS animation */
 .skills.section {
   overflow: hidden;
