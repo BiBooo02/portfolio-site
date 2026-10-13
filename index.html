@@ -2,9 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boban Bozic Portfolio</title>
+    <meta
+      name="description"
+      content="Boban Bozic — Software Developer building accessible, responsive web and mobile apps. Projects, experience, and contact."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Boban Bozic Portfolio" />
+    <meta
+      property="og:description"
+      content="Software Developer building accessible, responsive web and mobile apps."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
@@ -15,15 +27,17 @@
     />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
       // Apply saved/preferred theme before paint to avoid a flash of the wrong theme
       (function () {
-        const saved = localStorage.getItem("theme");
+        let saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
         const theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
         document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script defer src="main.js"></script>
   </head>
   <body>
     <!-- pixel marching-ant ticker at very top -->
@@ -32,7 +46,7 @@
     <header class="header">
       <a href="#home" class="logo">codebybb</a>
 
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#experience" class="nav-link">Experience</a>
@@ -42,18 +56,18 @@
         <button
           type="button"
           class="theme-toggle nes-btn"
-          onclick="toggleTheme()"
           aria-label="Toggle dark mode"
         >
-          <i class="bx bx-moon"></i>
+          <i class="bx bx-moon" aria-hidden="true"></i>
         </button>
       </nav>
 
       <button
         type="button"
         class="hamburger nes-btn"
-        onclick="toggleMenu()"
         aria-label="Toggle menu"
+        aria-controls="navbar"
+        aria-expanded="false"
       >
         MENU
       </button>
@@ -67,7 +81,7 @@
           <div class="home-panel">
             <h1>Hi!</h1>
             <p class="home-tagline">
-              I'm <span class="accent">Boban Bozic</span>,a Software
+              I'm <span class="accent">Boban Bozic</span>, a Software
               Developer.
             </p>
             <p class="home-desc">
@@ -98,7 +112,11 @@
               <div class="about-photo-wrap">
                 <img
                   class="about-photo"
-                  src="img/aboutnew.png"
+                  src="img/aboutnew.webp"
+                  width="1000"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
                   alt="Boban Bozic"
                 />
               </div>
@@ -214,7 +232,25 @@
           <div class="project-container">
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <img class="project-img" src="img/Project5.png" alt="Delta Tools" />
+              <img class="project-img" src="img/Project6.webp" width="800" height="374" loading="lazy" decoding="async" alt="Kamp Prikolice" />
+              <p>
+                Camping trailer dealer site — trailer offer, buying info, and
+                contact, with listings linked to avto.net.
+              </p>
+              <p class="label">Stack:</p>
+              <div class="stacks">
+                <span>React</span>
+                <span>Vite</span>
+                <span>JS</span>
+              </div>
+              <div class="buttons">
+                <a href="https://kamp-prikolice.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
+                <a href="https://github.com/BiBooo02/kamp-prikolice" target="_blank" rel="noopener noreferrer" class="nes-btn">Source</a>
+              </div>
+            </div>
+
+            <div class="nes-container is-dark with-title project-card reveal">
+              <img class="project-img" src="img/Project5.webp" width="800" height="345" loading="lazy" decoding="async" alt="Delta Tools" />
               <p>
                 Tech tools company site — responsive layout, admin panel, and
                 interactive product showcase.
@@ -227,12 +263,12 @@
               </div>
               <div class="buttons">
                 <a href="https://deltatools.ba/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
-                <a href="https://github.com/BiBooo02/deltatools" target="_blank" class="nes-btn">Source</a>
+                <a href="https://github.com/BiBooo02/deltatools" target="_blank" rel="noopener noreferrer" class="nes-btn">Source</a>
               </div>
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <img class="project-img" src="img/Project1.png" alt="Inflation Calculator" />
+              <img class="project-img" src="img/Project1.webp" width="800" height="384" loading="lazy" decoding="async" alt="Inflation Calculator" />
               <p>
                 Estimate future money value from inflation rate and time period.
               </p>
@@ -244,12 +280,12 @@
               </div>
               <div class="buttons">
                 <a href="https://inflation-calculator-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
-                <a href="https://github.com/BiBooo02/inflation-calculator" target="_blank" class="nes-btn">Source</a>
+                <a href="https://github.com/BiBooo02/inflation-calculator" target="_blank" rel="noopener noreferrer" class="nes-btn">Source</a>
               </div>
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <img class="project-img" src="img/Project2.png" alt="Todo List" />
+              <img class="project-img" src="img/Project2.webp" width="800" height="342" loading="lazy" decoding="async" alt="Todo List" />
               <p>
                 Task manager with multiple lists, custom icons, and a clean UI.
               </p>
@@ -261,12 +297,12 @@
               </div>
               <div class="buttons">
                 <a href="https://todo-list-chi-six-33.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
-                <a href="https://github.com/BiBooo02/todo-list" target="_blank" class="nes-btn">Source</a>
+                <a href="https://github.com/BiBooo02/todo-list" target="_blank" rel="noopener noreferrer" class="nes-btn">Source</a>
               </div>
             </div>
 
             <div class="nes-container is-dark with-title project-card reveal">
-              <img class="project-img" src="img/Project3.png" alt="CS2 Server Hosting" />
+              <img class="project-img" src="img/Project3.webp" width="800" height="390" loading="lazy" decoding="async" alt="CS2 Server Hosting" />
               <p>
                 Fictional game server host — services, pricing, and interactive
                 elements.
@@ -279,7 +315,7 @@
               </div>
               <div class="buttons">
                 <a href="https://cs2-server-hosting.vercel.app/" target="_blank" rel="noopener noreferrer" class="nes-btn is-primary">Live Demo</a>
-                <a href="https://github.com/BiBooo02/cs2-server-hosting" target="_blank" class="nes-btn">Source</a>
+                <a href="https://github.com/BiBooo02/cs2-server-hosting" target="_blank" rel="noopener noreferrer" class="nes-btn">Source</a>
               </div>
             </div>
 
@@ -294,7 +330,7 @@
         <div class="section-inner">
           <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
           <div class="nes-container is-dark contact-panel reveal">
-            <form action="#" onsubmit="return false;">
+            <form>
               <div class="input-row">
                 <div class="nes-field">
                   <label for="sendername">Name</label>
@@ -319,11 +355,7 @@
                 <label for="message">Message</label>
                 <textarea id="message" class="nes-textarea" rows="5" required></textarea>
               </div>
-              <button
-                type="button"
-                onclick="sendMail();"
-                class="nes-btn is-primary btn-submit"
-              >
+              <button type="submit" class="nes-btn is-primary btn-submit">
                 Send Message
               </button>
             </form>
@@ -336,16 +368,16 @@
       <div class="section-inner">
         <div class="nes-container is-dark footer-panel">
           <div class="social">
-            <a href="https://www.facebook.com/boban.bozic.79/" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <a href="https://www.facebook.com/boban.bozic.79/" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
               <i class="nes-icon facebook is-medium"></i>
             </a>
-            <a href="https://www.instagram.com/bbozic02/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <a href="https://www.instagram.com/bbozic02/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
               <i class="nes-icon instagram is-medium"></i>
             </a>
-            <a href="https://github.com/BiBooo02" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <a href="https://github.com/BiBooo02" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
               <i class="nes-icon github is-medium"></i>
             </a>
-            <a href="https://www.linkedin.com/in/boban-bozic/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-text"><i class="nes-icon linkedin is-medium"></i></a>
+            <a href="https://www.linkedin.com/in/boban-bozic/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="nes-icon linkedin is-medium"></i></a>
           </div>
           <ul class="footer-nav">
             <li><a href="#home">Home</a></li>
@@ -359,8 +391,7 @@
         </div>
       </div>
     </footer>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="main.js"></script>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script>
       window.va = window.va || function () {
         (window.vaq = window.vaq || []).push(arguments);

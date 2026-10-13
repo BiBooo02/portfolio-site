@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 html,
 body,
 pre,
@@ -42,6 +40,7 @@ a:visited {
   --border: #111111;
   --shadow: 6px 6px 0px #111111;
   --shadow-hover: 2px 2px 0px #111111;
+  --header-shadow: #dddddd;
 }
 
 [data-theme="dark"] {
@@ -53,6 +52,7 @@ a:visited {
   --border: #f4f4f4;
   --shadow: 6px 6px 0px #f4f4f4;
   --shadow-hover: 2px 2px 0px #f4f4f4;
+  --header-shadow: #333333;
 }
 
 body {
@@ -138,7 +138,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  box-shadow: 0 4px 0 #ddd;
+  box-shadow: 0 4px 0 var(--header-shadow);
   transition: background-color 0.2s steps(4), border-color 0.2s steps(4);
 }
 
@@ -440,16 +440,26 @@ body {
   opacity: 0.85;
 }
 
-/* Skills — RAF scroll, no CSS animation */
+/* Skills — infinite marquee. main.js appends 3 copies of the set, so
+   shifting by -25% moves exactly one set. Spacing uses margin-right
+   (not gap) so every set has the same width and the loop is seamless. */
+@keyframes skills-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
 .skills.section {
   overflow: hidden;
 }
 
 .skills-container {
   display: flex;
-  gap: 1.5rem;
   width: max-content;
-  will-change: transform;
+  animation: skills-scroll 40s linear infinite;
+}
+
+.skills-track:hover .skills-container {
+  animation-play-state: paused;
 }
 
 
@@ -461,6 +471,7 @@ body {
   text-align: center;
   min-height: 120px;
   min-width: 180px;
+  margin-right: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -720,6 +731,20 @@ body {
 .toast.error { border-color: #c0392b; }
 .toast.error i { color: #c0392b; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Keep the skills strip static and scrollable instead of auto-moving */
+  .skills-container { animation: none !important; }
+  .skills-track { overflow-x: auto; }
+}
+
 @media screen and (max-width: 768px) {
   .toast {
     left: 1rem;
@@ -727,9 +752,7 @@ body {
     bottom: 1rem;
     max-width: none;
   }
-}
 
-@media screen and (max-width: 768px) {
   html { font-size: 16px; }
   .header { padding: 0.75rem 1rem; }
   .logo { font-size: 0.8rem; }
